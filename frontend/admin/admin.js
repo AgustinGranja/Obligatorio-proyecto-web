@@ -3,7 +3,7 @@ let orders = []; // Lista de pedidos obtenidos del backend
 // Obtener pedidos del backend
 async function fetchOrders() {
   try {
-    const response = await fetch("http://localhost:5000/api/orders");
+    const response = await fetch(`${backendUrl}/api/orders`);
     if (!response.ok) throw new Error("Error al obtener pedidos");
 
     orders = await response.json();
@@ -52,7 +52,7 @@ async function updateOrderStatus(event) {
   const newStatus = event.target.value;
 
   try {
-    const response = await fetch(`http://localhost:5000/api/orders/${orderId}`, {
+    const response = await fetch(`${backendUrl}/api/orders/${orderId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status: newStatus }),
