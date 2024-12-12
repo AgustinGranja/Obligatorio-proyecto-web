@@ -10,10 +10,11 @@ document.getElementById('zona-y-horarios').addEventListener('click', () => {
     window.location.href = 'carrito.html'; // Navega a otra página
   });
 
+  const backendUrl = "https://obligatorio-proyecto-web-backend.onrender.com";
 
   async function loadProducts() {
     try {
-      const response = await fetch("http://localhost:5000/api/products");
+      const response = await fetch(`${backendUrl}/api/products`);
       if (!response.ok) throw new Error("Error fetching products");
 
       const products = await response.json();
@@ -142,7 +143,7 @@ document.querySelector('.extra-option.underline').addEventListener('click', () =
 // Simulación de autenticación (usará fetch en producción)
 async function loginUser(email, password) {
   try {
-    const response = await fetch("http://localhost:5000/api/users/login", {
+    const response = await fetch(`${backendUrl}/api/users/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -169,7 +170,7 @@ async function registerUser(email, username, password, confirmPassword, address,
       return;
     }
 
-    const response = await fetch("http://localhost:5000/api/users/register", {
+    const response = await fetch(`${backendUrl}/api/users/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

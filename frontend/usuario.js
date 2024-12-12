@@ -1,3 +1,6 @@
+
+const backendUrl = "https://obligatorio-proyecto-web-backend.onrender.com";
+
 // Obtener datos del usuario
 async function fetchUserData() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -7,7 +10,7 @@ async function fetchUserData() {
   }
 
   try {
-    const response = await fetch(`http://localhost:5000/api/users/${user.userId}`);
+    const response = await fetch(`${backendUrl}/api/users/${user.userId}`);
     if (!response.ok) throw new Error("Error al obtener datos del usuario");
 
     const userData = await response.json();
@@ -37,7 +40,7 @@ async function fetchUserData() {
     }
   
     try {
-      const response = await fetch(`http://localhost:5000/api/users/${user.userId}`, {
+      const response = await fetch(`${backendUrl}/api/users/${user.userId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ [field]: value }),
@@ -66,7 +69,7 @@ async function fetchUserData() {
       const confirmDelete = confirm("¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.");
       if (!confirmDelete) return;
   
-      const response = await fetch(`http://localhost:5000/api/users/${user.userId}`, {
+      const response = await fetch(`${backendUrl}/api/users/${user.userId}`, {
         method: "DELETE",
       });
   

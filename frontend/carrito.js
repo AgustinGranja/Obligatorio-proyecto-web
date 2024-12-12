@@ -10,6 +10,8 @@ document.getElementById('zona-y-horarios').addEventListener('click', () => {
     window.location.href = 'carrito.html'; // Navega a otra página
   });
 
+  const backendUrl = "https://obligatorio-proyecto-web-backend.onrender.com";
+
 
 /*CARGAR CARRITO */
 
@@ -33,7 +35,7 @@ function loadCart() {
         <p class="item-quantity">${item.quantity}</p>
         <p class="item-description">${item.name}</p>
         <p class="item-price">$${item.price * item.quantity}</p>
-        <img class="item-image" src="https://via.placeholder.com/51x51" alt="Producto" onclick="removeFromCart(${index})">
+        <img class="item-image" src="img/ph--trash.png" alt="Producto" onclick="removeFromCart(${index})">
       </div>
     `;
     cartContainer.innerHTML += itemHTML;
@@ -95,7 +97,7 @@ async function placeOrder() {
       coupon: appliedCoupon ? appliedCoupon.code : null, // Incluir el código del cupón si existe
     };
 
-    const response = await fetch("http://localhost:5000/api/orders", {
+    const response = await fetch(`${backendUrl}/api/orders`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
