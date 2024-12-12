@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Testing</title>
+</head>
+<body>
+  <h1>API Testing Page</h1>
+
+  <!-- User Registration -->
+  <form id="registerForm">
+    <h2>Register</h2>
+    <input type="text" id="username" placeholder="Username" required />
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <input type="text" id="address" placeholder="Address" required />
+    <input type="text" id="phone" placeholder="Phone" required />
+    <button type="submit">Register</button>
+  </form>
+
+  <!-- Product List -->
+  <button id="getProducts">Get Products</button>
+  <ul id="productList"></ul>
+
+  <!-- Create Order -->
+  <form id="createOrderForm">
+    <h2>Create Order</h2>
+    <textarea id="orderItems" placeholder="Order Items JSON" required></textarea>
+    <input type="text" id="total" placeholder="Total" required />
+    <input type="text" id="deliveryAddress" placeholder="Delivery Address" required />
+    <button type="submit">Create Order</button>
+  </form>
+
+  <script>
+    const serverUrl = "http://localhost:5000";
+
+    // Register User
+    document.getElementById('registerForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const payload = {
+        username: document.getElementById('username').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value,
+        address: document.getElementById('address').value,
+      };
+
+      try {
+        const res = await fetch(
+          `${serverUrl}/api/users/register`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          }
+        );
+        const data = await res.json();
+        console.log("Register Response:", data);
+      } catch (error) {
+        console.error("Error registering user:", error);
+      }
+    });
+
+    // Get Products
+    document.getElementById('getProducts').addEventListener('click', async () => {
+      try {
+        const res = await fetch(`${serverUrl}/api/products`);
+        const products = await res.json();
+        const productList = document.getElementById('productList');
+        productList.innerHTML = "";
+        products.forEach((product) => {
+          const li = document.createElement('li');
+          li.textContent = `${product.name} - \$ ${product.price}`;
+          productList.appendChild(li);
+        });
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    });
+
+    // Create Order
+    document.getElementById('createOrderForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const payload = {
+        userId: "Replace_with_User_ID", // Replace with a valid user ID
+        items: JSON.parse(document.getElementById('orderItems').value),
+        total: document.getElementById('total').value,
+        deliveryAddress: document.getElementById('deliveryAddress').value,
+      };
+
+      try {
+        const res = await fetch(
+          `${serverUrl}/api/orders`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          }
+        );
+        const data = await res.json();
+        console.log("Order Response:", data);
+      } catch (error) {
+        console.error("Error creating order:", error);
+      }
+    });
+  </script>
+</body>
+</html>

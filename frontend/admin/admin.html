@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <h1>Gestión de Pedidos</h1>
+        <div class="filters">
+          <button class="filter-button" data-status="all">Todos</button>
+          <button class="filter-button" data-status="pendiente">Pendientes</button>
+          <button class="filter-button" data-status="en_proceso">En Proceso</button>
+          <button class="filter-button" data-status="completado">Completados</button>
+        </div>
+        <div class="orders-container" id="orders-container">
+          <!-- Las tarjetas de pedidos se generarán dinámicamente aquí -->
+        </div>
+      </div>
+    <script src="admin.js"></script>      
+</body>
+</html>

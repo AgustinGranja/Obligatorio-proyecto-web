@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="header">
+    <div class="brand">
+      <img src="img/Yudas logo.png" />
+      <div class="spacer"></div>
+      <p class="name">Yuda’s</p>
+    </div>
+    <div class="actions">
+      <div class="user-info">
+        <!-- Aquí se cargará dinámicamente el estado del usuario -->
+        <button class="button" onclick="showModal('loginModal')">Entrar</button>
+      </div>
+      <div class="status">
+        <button class="button" onclick="window.location.href = 'usuario.html';">Usuario</button>
+      </div>
+    </div>
+  </div>
+      
+      <div class="custom-nav">
+        <!-- Zona y Horarios -->
+        <div class="custom-nav-item" id="zona-y-horarios">
+          <div class="custom-nav-content">
+            <div class="custom-icon-container">
+              <img src="data:image/png;base64,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" alt="Icon" class="custom-icon">
+            </div>
+            <p class="custom-nav-text">Zona y Horarios</p>
+          </div>
+        </div>
+      
+        <!-- Carta -->
+        <div class="custom-nav-item-carta" id="carta">
+            <div class="custom-nav-content">
+              <div class="custom-icon-container">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAAXNSR0IArs4c6QAAAg5JREFUaEPtmrFLXEEQxn+fbSoRA1YKdsYqYJPGVBbWRoIgNlamNlgEVBIIqK1Wgk0Ejdha2JjOIpBK0qVOIcT/wMktjuCB3tv33rl33O1Wd7zZ2e+bmf3e7r4VPdTUQ1yIJmNmQ8ArYCBhAG6BK0n/YsaMImNmh8BCjMNnsvkmabHIdyEZM3sHfC9ylOD5nKTTVuPEkFkDvrqT38B1AuD3Qww3Ajnhfz5K2q5LZgNYdyfzkk5SkTGzeeDYx9uUFLA82WIyk8m0I3s5M62iaGb9UWZmNgMsezD2JZ2H32YWBCO8YKObpDDZm1rSMjOzFWDXEXyQtOdkLoC30UwANaQqk3kQgVrSbGaDwIj7+yvpxjMzCrwomZnwQu5cmZUBW8U26ZypArBMn6RksgA8kZpuULP3wCfH90XSkQvAATBVpqQkTWYBaJc0l4l8FdvUAjAOvHagvxpb2z9eZtPAyzIEHtsnpSaTlzOPZawb1Cwo1qyDO5P008tsCRgrWWabWc2ymt1FoOl0Jm/Oung501PSnDdnsZKddAUQC6qqXVIyeXPWxWqWN2excyjpnIkFVdUuk2kVub75ClC1fGL75TLLZRZbKzXsnqPMVoEtx9TJewCrknZaxSbm+0w4A/tRI8Dt6vpG0mUtMn7aEs6TP7cLVQU/hbczgs/CzNwP3DO3mipEsiNdojPTEXQlB/0PUTFWUvaQpisAAAAASUVORK5CYII=" alt="Icon" class="custom-icon">
+              </div>
+              <p class="custom-nav-text">Carta</p>
+            </div>
+          </div>
+      
+        <!-- Carrito -->
+        <div class="custom-nav-item" id="carrito">
+          <div class="custom-nav-content">
+            <div class="custom-icon-container">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAA21JREFUWEftmE+IVXUUxz9fSDFbVE6izSraZGVjoLjRhViKuglqkyHGuHAlRIo5CsK4U0FnXLTQRQkhI7QoEDWxRMlN/hsY/ywiJkRNyT+jVqAEnn6nfne47/nue/e9d9+bt+isHu/ec36fe/78zvn9RIeLOpyPcUAzex74GJiWgv4b+FrSzxP1IWnAtcDeCiBnJc3vBMAFwCHgxXIYSROWCpkLm9mHwFCEnSfp/ER4sRrgG8DlCLVG0pedBujwj4DJwICk9R0F6DBmdi7k5VzgpwDb1wbAYUkP0utUTX4z+wLobQNYssQ94HVJvyd/1AL8BBhsI6Av1SPpYl7AxcAP8eWtwOkWwa4DPnDb5VtaLQ++AIxFqM2StrcC0MyOAUuBS5Leyp2DsVBuAN3AQUkrWwR4E5gJHJC0ql7Ao8Ay4IqkN4sGNLN0lDZJ2lkv4A7gM+AJMEWSDxCFiZm9CxyPBpdL+q5ewI/c9VFprqQLhdH9t9d6A9gVbXZL8nCPS80hwMxmhwpLyr5X0v6CAd2ej3ljktKj3r/L5AFMt7zBsNN/WjDgMPC2b2eSPNwlUhMwVnJi5ISkd4oCNLOa/T4vYBKGu5JeKhAwXSCrJX3VqAfTifxjrOhmOZ8J1etDciJdkrwXNxTi9Jc2C1ZJf1sY2vsrPcgbYg/r7WjgGjBaIOU3kvZk2csFGAslaUdD4ZTne2NbpB7AzIbeStJ6AL1HbowwFRO6FaD1AK4ADkeIM4D3TGsQ6jHwC3AsnHUeVrORGzDm4QhQMq81CJioXQXer9bfcwOaWQ/gh6hJTUKVq18Ps+YsSX81vM1E7/nA4IPDHyE8PlT6Sc+bvI9jLn2Skt8la5nZ94C3yCzdDZJ2NwxoZq8EmF+jgZLJ2sxuATOAU5IWVVrEzNw7U8un8pRu5taVK8Rm9hzwZ1y8xJiZ/RYunV4GMi+ZzMyPkdP9KiW9h6Z0mwOMIf4WeA/wqtsUzsue4AuBLRH8c0l+OntKzOxISInlVXTXSxpoOMQR8FXAL5D8DFEufn+4IADeyQB8LXycj2zPVng+ImlOVuHlCnGiHKfrk0BX/M+PpPvC735Jfo+TKWbmEAe9YlMveVR8Sr9fCGD0pOfjEveGpOR6rhpbeUV7wXlRjUpKBpBM/bo8mJuiwBf/B2zWmf8Aw1cyOHtRO/cAAAAASUVORK5CYII=" alt="Icon" class="custom-icon">
+            </div>
+            <p class="custom-nav-text">Carrito</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="user-data-container">
+        <p class="user-data-title">Tus datos</p>
+        <div class="user-data">
+          <div class="data-item">
+            <img src="img/ph--user-circle (1).png" alt="Icono" class="data-icon" />
+            <p class="data-text" id="user-name">Nombre: </p>
+            <button class="add-address-button" onclick="editUserData('username')">Editar</button>
+          </div>
+          <div class="data-item">
+            <img src="img/ph--envelope-simple.png" alt="Icono" class="data-icon" />
+            <p class="data-text" id="user-email">Email: </p>
+            <button class="add-address-button" onclick="editUserData('email')">Editar</button>
+          </div>
+          <div class="data-item">
+            <img src="img/ph--phone.png" alt="Icono" class="data-icon" />
+            <p class="data-text" id="user-phone">Teléfono: </p>
+            <button class="add-address-button" onclick="editUserData('phone')">Editar</button>
+          </div>
+          <div class="data-item">
+            <img src="img/ph--map-pin-line.png" alt="Icono" class="data-icon" />
+            <p class="data-text" id="user-address">Dirección: </p>
+            <button class="add-address-button" onclick="editUserData('address')">Editar</button>
+          </div>
+        </div>
+        <button class="delete-account-button">
+          <img src="img/ph--trash.png" alt="Icono" class="delete-icon" />
+          Eliminar mi cuenta
+        </button>
+      </div>
+      
+
+
+
+      <div id="loginModal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="login-container">
+          <div class="login-form">
+            <img class="login-icon" src="img/ph--user.png" alt="Login Icon" />
+            <p class="login-title">Login</p>
+            <div class="input-group">
+              <input type="email" class="input-field" placeholder="Ingrese email" />
+            </div>
+            <div class="input-group">
+              <input type="password" class="input-field" placeholder="Ingrese contraseña" />
+            </div>
+            <button class="login-button">Entrar</button>
+            <p class="extra-option underline">Registrarse</p>
+            <div class="radio-option">
+              <input type="radio" name="remember" id="remember" />
+              <label for="remember">Recordar usuario</label>
+            </div>
+            <p class="extra-option underline">Recuperar contraseña</p>
+            <img class="close-icon" src="img/teenyicons--x-outline.png" alt="Close Icon" onclick="closeModal('loginModal')" />
+          </div>
+        </div>
+      </div>
+      
+      <div id="registerModal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="register-container">
+          <p class="register-title">Registro</p>
+          <div class="input-group">
+            <input type="email" class="input-field" placeholder="Ingrese email" />
+          </div>
+          <div class="input-group">
+            <input type="text" class="input-field" placeholder="Ingrese nombre y apellido" />
+          </div>
+          <div class="input-group">
+            <input type="password" class="input-field" placeholder="Ingrese contraseña" />
+          </div>
+          <div class="input-group">
+            <input type="password" class="input-field" placeholder="Confirmar contraseña" />
+          </div>
+          <button class="register-button">Registrarme</button>
+          <img class="close-icon" src="img/teenyicons--x-outline.png" alt="Close Icon" onclick="closeModal('registerModal')" />
+        </div>
+      </div>
+
+
+      <script src="usuario.js"></script>
+      <script src="index.js"></script>
+</body>
+</html>
