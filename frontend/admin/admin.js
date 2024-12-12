@@ -1,3 +1,6 @@
+
+const backendUrl = "https://obligatorio-proyecto-web-backend.onrender.com";
+
 let orders = []; // Lista de pedidos obtenidos del backend
 
 // Obtener pedidos del backend

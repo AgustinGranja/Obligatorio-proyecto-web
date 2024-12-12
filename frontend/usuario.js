@@ -84,14 +84,6 @@ async function fetchUserData() {
     }
   }
   
-  // Agregar eventos a los botones
-  document.querySelector(".add-address-button").addEventListener("click", () => {
-    const newAddress = prompt("Ingresa tu nueva dirección:");
-    if (newAddress) {
-      updateUserData("address", newAddress);
-    }
-  });
-  
   document.querySelector(".delete-account-button").addEventListener("click", deleteUserAccount);
   
   // Inicializar datos del usuario
