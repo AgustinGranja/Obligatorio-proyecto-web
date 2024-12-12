@@ -31,3 +31,17 @@ mongoose.connect(process.env.MONGO_URI, {
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
+
+app.get("/", (req, res) => {
+  res.send(`
+    <h1>Backend API</h1>
+    <p>Rutas disponibles:</p>
+    <ul>
+      <li><code>GET /api/users</code> - Obtener usuarios</li>
+      <li><code>POST /api/users/login</code> - Login de usuario</li>
+      <li><code>GET /api/orders</code> - Obtener pedidos</li>
+    </ul>
+  `);
+});
+
+

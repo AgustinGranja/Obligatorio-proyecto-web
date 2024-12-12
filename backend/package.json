@@ -8,5 +8,16 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.8.4",
     "nodemon": "^3.1.7"
-  }
+  },
+  "scripts": {
+  "start": "node server.js",
+  "test": "echo \"Error: no test specified\" && exit 1"
+},
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "author": "Agustin Granja",
+  "license": "ISC",
+  "description": ""
 }
